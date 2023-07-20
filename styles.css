@@ -135,6 +135,8 @@ header>p {
     font-weight: 400;
 }
 
+/* Navigation Selectors */
+
 nav {
     order: -1;
 }
@@ -480,6 +482,8 @@ footer a {
 
 @media screen and (min-width: 768px) {
 
+    /* Header Selectors */
+
     header {
         display: grid;
         grid-template-areas:
@@ -511,6 +515,8 @@ footer a {
         margin: 0 4rem 1rem 0;
         align-self: end;
     }
+
+    /* Nav Selectors */
 
     nav {
         grid-area: nav;
@@ -565,6 +571,10 @@ footer a {
         background-color: var(--teal);
     }
 
+    /* Main Selectors */
+
+    /* Intro */
+
     #intro, article > section {
         display: flex;
         flex-direction: column;
@@ -603,6 +613,8 @@ footer a {
     h3 {
         margin: 0 5rem;
     }
+
+    /* Specific Sections */
 
     #plan div, #testimonials div {
         display: grid;
@@ -666,6 +678,8 @@ footer a {
         width: calc(100dvw - 10rem)
     }
 
+    /* Form Elements */
+
     form {
         display: flex;
         flex-direction: column;
@@ -698,6 +712,8 @@ footer a {
         align-self: flex-end;
     }
 
+    /* Footer */
+
     footer {
         flex-direction: row;
         padding: 2rem 5rem 1.5rem;
@@ -705,6 +721,8 @@ footer a {
 }
 
 @media screen and (min-width: 1920px) {
+    /* Header Selectors */
+
     header {
         grid-template-columns: 279px 1fr 1fr;
         grid-template-rows: repeat(3, min-content);
@@ -743,6 +761,8 @@ footer a {
         margin: 0;
     }
 
+    /* Nav Selectors */
+
     nav {
         align-self: start;
         justify-self: end;
@@ -751,6 +771,10 @@ footer a {
     #menu-toggle {
         margin: 0;
     }
+
+    /* Main Selectors */
+
+    /* Intro */
 
     #intro {
         display: flex;
@@ -796,6 +820,8 @@ footer a {
         object-fit: none;
         object-position: top;
     }
+
+    /* Section Selectors */
 
     #intro, article > section {
         padding: 7.5rem;
@@ -854,6 +880,8 @@ footer a {
         padding-bottom: 1.5rem;
     }
 
+    /* Form Selectors */
+
     form {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -891,6 +919,8 @@ footer a {
     #mySubmit {
         margin-top: 1.875rem;
     }
+
+    /* Footer */
 
     footer {
         justify-content: space-evenly;
