@@ -1,0 +1,904 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* End CSS Reset */
+
+@import url("https://fonts.google.com/share?selection.family=Molle:ital@1%7CMontserrat");
+
+:root {
+    --yellow: #F6D64A;
+    --teal: #55BCD5;
+    --purple: #9B26B0;
+    --blue: #499BD2;
+    --darkGray: #222222;
+    --lightGray: #EAEAEA;
+    --white: #FFFFFF;
+    --black: #000000;
+}
+
+/* Global Elements */
+
+html,
+body {
+    overflow-x: hidden;
+    background: var(--background);
+    color: var(--textColor);
+}
+
+h1, h2, h3 {
+    font-family: "Molle"
+}
+
+h4, p, q, small, nav, button, form {
+    font-family: "Montserrat"
+}
+
+#skip {
+    position: absolute;
+    left: -100000px;
+    padding: .25rem 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--darkGray);
+    background-color: var(--yellow);
+    border-radius: 0 0 1rem 1rem;
+    font-family: 'Montserrat';
+    font-weight: 600;
+}
+
+#skip:focus {
+    left: 50dvw;
+    transform: translateX(-50%);
+}
+
+/* Header Section */
+
+header {
+    background: linear-gradient(var(--teal), var(--white));
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: min-content;
+}
+
+#logo {
+    display: block;
+    order: -2;
+    margin-top: .5rem;
+    align-self: flex-start;
+}
+
+#logo>img {
+    display: block;
+    height: 70px;
+    height: 4.375rem;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 3.125rem;
+    margin: 1.25rem 0 0 2.25rem;
+}
+
+header>p {
+    margin: 0 2rem 3.125rem;
+    padding-right: 2rem;
+    line-height: 1.875rem;
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+nav {
+    order: -1;
+}
+
+.sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+#toggle {
+    display: none;
+}
+
+#toggle~label {
+    background-color: var(--yellow);
+    color: var(--black);
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 1.75rem;
+    width: 210px;
+    height: 50px;
+    transition: all 1s ease;
+    flex: 1 1 5rem;
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#toggle:checked~label {
+    background-color: var(--darkGray);
+    color: var(--white);
+    font-weight: 600;
+    width: 100dvw;
+    overflow: hidden;
+}
+
+#menu-toggle ul {
+    position: relative;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 100%;
+    overflow: hidden;
+    flex-wrap: wrap;
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+#menu-toggle li {
+    background-color: var(--teal);
+    border-bottom: 1px solid var(--darkGray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#menu-toggle li a {
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    height: 6.25rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#toggle:checked~ul {
+    height: calc((6.25rem + 1px) * 4);
+    width: 100dvw;
+    opacity: 1;
+    left: 0;
+}
+
+/* Main Selectors */
+
+/* Intro */
+
+article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin: 0 2rem;
+    line-height: 3.125rem;
+}
+
+#intro p {
+    font-size: 1rem;
+    margin: 0 2rem .625rem;
+    line-height: 1.875rem;
+}
+
+#img-grid {
+    display: grid;
+    grid-template-rows: repeat(3, 340px);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+#img-grid img {
+    max-height: 340px;
+    width: 100%;
+    object-fit: cover;
+}
+
+#img-grid picture img {
+    aspect-ratio: 428 / 340;
+}
+
+/* Sections */
+
+article > section {
+    width: 100%;
+    padding: 1.5rem 0;
+}
+
+h3 {
+    font-size: 2.5rem;
+    line-height: 3.125rem;
+    margin: 0 2.5rem;
+}
+
+h3 span {
+    font-size: 1.25rem;
+    font-style: italic;
+    font-family: 'Montserrat';
+}
+
+section div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+
+section div section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h4 {
+    font-size: 1.625rem;
+    line-height: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: .25rem;
+}
+
+main p {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+}
+
+q {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    font-style: italic;
+    margin: 0 4.5rem;
+    text-align: center;
+}
+
+q::before,
+q::after {
+    content: '"';
+}
+
+/* Section Specific Elements */
+
+#plan {
+    background-color: var(--yellow);
+}
+
+#plan section {
+    background-color: var(--teal);
+    border: 3px solid var(--white);
+    border-radius: 10px;
+    height: 300px;
+    aspect-ratio: 6 / 5;
+}
+
+#plan a {
+    margin-top: 1rem;
+}
+
+#testimonials h4 {
+    text-align: center;
+}
+
+div:not(#intro) p {
+    text-align: center;
+}
+
+#about {
+    background-color: var(--blue);
+    display: flex;
+    flex-direction: column;
+}
+
+#about div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-self: center;
+    justify-self: center;
+    justify-content: center;
+    gap: 1rem 0;
+}
+
+#about p {
+    font-size: 1.25rem;
+}
+
+#about div section:first-of-type p {
+    display: none;
+}
+
+#about div section:first-of-type:after {
+    font-family: 'Montserrat';
+    white-space: pre;
+    content: '1,405 mi sq';
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+}
+
+#about img {
+    max-height: 6.25rem;
+}
+
+#contact h3 {
+    margin: 0;
+}
+
+/* Form Elements */
+
+form {
+    margin: 0 2.5rem;
+}
+
+#contact div {
+    align-items: stretch;
+}
+
+label, legend {
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+fieldset label {
+    text-transform: none;
+    font-weight: initial;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--darkGray);
+}
+
+.required {
+    color: var(--purple)
+}
+
+input, select {
+    height: 75px;
+    min-width: 75px;
+    border: 3px solid var(--purple);
+    accent-color: var(--purple);
+    outline-color: var(--purple);
+    font-size: 1.25rem;
+    color: var(--darkGray);
+    background: none;
+}
+
+input:not([type="radio"]):not(#mySubmit), select {
+    padding-left: 1rem;
+    box-sizing: border-box;
+}
+
+input[type="radio"] {
+    outline: none;
+    appearance: none;
+    border-radius: 100%;
+}
+
+input[type="radio"]:checked {
+    /* svg code copied straight from Adobe XD */
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="47" height="47" viewBox="0 0 47 47"><circle id="Ellipse_1" data-name="Ellipse 1" cx="23.5" cy="23.5" r="23.5" fill="%239b26b0"/></svg>') no-repeat center;
+}
+
+select {
+    /* svg code copied straight from Adobe XD */
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="44.243" height="23.621" viewBox="0 0 44.243 23.621"><path id="Path" d="M5,7.5l20,20,20-20" transform="translate(-2.879 -5.379)" fill="%23fff" fill-opacity="0" stroke="%239b26b0" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/></svg>') no-repeat right 40px center;
+    appearance: none;
+}
+
+#mySubmit {
+    border: none;
+    background-color: var(--purple);
+    color: var(--white);
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Footer Elements */
+
+footer {
+    display: flex;
+    background-color: var(--lightGray);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.25rem;
+}
+
+footer a {
+    font-family: 'Montserrat';
+    text-decoration: none;
+    color: black;
+    line-height: 1.25rem;
+}
+
+@media (prefers-reduced-motion) {
+    
+    #toggle~label, nav ul {
+        transition: initial
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    header {
+        display: grid;
+        grid-template-areas:
+            'img heading'
+            'img paragraph'
+            'nav nav';
+        grid-template-columns: minmax(1fr, 236px) 2fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        height: 283px;
+    }
+
+    #logo {
+        grid-area: img;
+        align-self: center;
+    }
+
+    #logo img {
+        height: auto;
+    }
+
+    h1 {
+        grid-area: heading;
+        margin: 0;
+        align-self: end;
+    }
+
+    header>p {
+        grid-area: paragraph;
+        margin: 0 4rem 1rem 0;
+        align-self: end;
+    }
+
+    nav {
+        grid-area: nav;
+        order: 0;
+    }
+
+    #toggle~label {
+        display: none
+    }
+
+    #menu-toggle {
+        margin: 0 5rem
+    }
+
+    #menu-toggle ul {
+        position: static;
+        display: flex;
+        width: fit-content;
+        height: min-content;
+        opacity: 1;
+        justify-content: center;
+        gap: 1rem;
+        transition: none;
+    }
+
+    #toggle:checked~ul {
+        height: min-content;
+        width: 100vw;
+        opacity: 1;
+        left: 0;
+    }
+
+    #menu-toggle li {
+        border: none;
+    }
+
+    #menu-toggle li a {
+        display: flex;
+        height: 50px;
+        width: 140px;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--white); 
+    }
+    
+    #menu-toggle .active a {
+        background-color: var(--yellow);
+    }
+    
+    #menu-toggle li:not(.active) a:hover {
+        background-color: var(--teal);
+    }
+
+    #intro, article > section {
+        display: flex;
+        flex-direction: column;
+        padding: 1.25rem 5rem;
+    }
+
+    h2, #intro p {
+        margin: 0;
+    }
+
+    #img-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(2, min-content);
+        gap: 1rem;
+        margin: 0;
+    }
+
+    #img-grid img:first-of-type {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    #img-grid picture img {
+        aspect-ratio: inherit;
+    }
+
+    picture {
+        grid-column: 1 / span 2;
+    }
+
+    picture img {
+        max-width: 100%;
+    }
+
+    h3 {
+        margin: 0 5rem;
+    }
+
+    #plan div, #testimonials div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+    }
+
+    section div {
+        align-self: center;
+    }
+
+    #plan section {
+        height: calc(249px - 1.25rem);
+        width: calc(295px - 1.25rem);
+        padding: .625rem;
+    }
+
+    #plan a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-self: center;
+        align-self: center;
+        max-width: 186px;
+        max-height: 164px;
+    }
+
+    #plan h4 {
+        font-size: 1.375rem;
+        line-height: 1.6875rem;
+        margin-top: 0;
+        align-self: center;
+        justify-self: start;
+    }
+
+    #plan section:first-of-type a {
+        max-width: 148px;
+    }
+
+    #plan img {
+        object-fit: cover;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    #testimonials section {
+        gap: 0;
+        width: 330px;
+    }
+
+    q {
+        margin: 0 1.5rem;
+    }
+
+    #about div {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    #contact {
+        width: calc(100dvw - 10rem)
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-self: center;
+    }
+
+    form>div {
+        align-content: stretch;
+        width: 100%;
+
+    }
+
+    fieldset {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    fieldset label {
+        margin: .5rem 0;
+    }
+
+    .custom-select {
+        width: 100%;
+    }
+
+    #mySubmit {
+        width: 50%;
+        align-self: flex-end;
+    }
+
+    footer {
+        flex-direction: row;
+        padding: 2rem 5rem 1.5rem;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    header {
+        grid-template-columns: 279px 1fr 1fr;
+        grid-template-rows: repeat(3, min-content);
+        grid-template-areas:
+            '. . nav'
+            'img heading .'
+            'img paragraph .';
+        height: min-content;
+        padding-bottom: 3rem;
+    }
+
+    #logo {
+        margin: 0 0 0 -2.5rem;
+    }
+
+    #logo img {
+        width: 358px
+    }
+
+    h1 {
+        font-size: 4.6875rem;
+        margin-top: 3.2rem;
+    }
+
+    h3 {
+        width: 1680px;
+        align-self: center;
+    }
+
+    h4 {
+        font-size: 1.625rem;
+        line-height: 2rem;
+    }
+
+    header p {
+        margin: 0;
+    }
+
+    nav {
+        align-self: start;
+        justify-self: end;
+    }
+
+    #menu-toggle {
+        margin: 0;
+    }
+
+    #intro {
+        display: flex;
+        flex-flow: column wrap;
+        max-height: calc(287px + 1rem + 300px);
+        align-items: center;
+        justify-content: center;
+        width: 1680px;
+    }
+
+    #intro h2, #intro p {
+        width: calc(100% - 950px - 2rem);
+        padding-right: 2rem;
+    }
+
+    #intro h2 {
+        font-size: 2.8125rem;
+        line-height: 3.5rem;
+    }
+
+    #intro p {
+        flex: 1 0 50%;
+        font-size: 1.25rem;
+        line-height: 1.875rem;
+    }
+
+    #img-grid {
+        width: 950px;
+        align-self: stretch;
+        grid-template-rows: 287px 300px;
+    }
+
+    #img-grid img {
+        object-fit: cover;
+        max-height: 100%;
+    }
+
+    #img-grid > img {
+        object-position: bottom right;
+    }
+
+    #img-grid picture img {
+        object-fit: none;
+        object-position: top;
+    }
+
+    #intro, article > section {
+        padding: 7.5rem;
+    }
+
+    #plan div {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    #plan section {
+        height: calc(336px - 1.25rem);
+        width: calc(398px - 1.25rem);
+        justify-content: space-evenly;
+    }
+
+    #plan h4 {
+        font-size: 1.875rem;
+    }
+
+    #plan section:first-of-type a {
+        max-width: none;
+    }
+
+    #plan img {
+        max-width: none;
+        max-height: none;
+    }
+
+    #testimonials div {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+    }
+
+    #testimonials section {
+        width: 398px;
+    }
+
+    #about div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 6.25rem;
+    }
+
+    #about div section:first-of-type p {
+        display: block;
+    }
+
+    #about div section:first-of-type::after {
+        display: none;
+    }
+
+    #about img {
+        max-height: none;
+        padding-bottom: 1.5rem;
+    }
+
+    form {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: max-content;
+        gap: 1rem;
+        width: 1680px;
+    }
+
+    form div {
+        gap: 0;
+        margin: 0;
+        align-self: start;
+    }
+
+    form label, legend {
+        margin-bottom: .375rem;
+    }
+
+    form input:not(#mySubmit):not([type="radio"]), select {
+        margin-bottom: 1.6875rem;
+    }
+
+    fieldset label {
+        margin: 0;
+    }
+    
+    fieldset input[type="radio"] {
+        margin-bottom: 21px;
+    }
+    
+    fieldset label span:last-of-type {
+        margin-bottom: 25px;
+    }
+
+    #mySubmit {
+        margin-top: 1.875rem;
+    }
+
+    footer {
+        justify-content: space-evenly;
+        padding: 1rem 140px;
+        gap: 145px;
+    }
+
+    footer p {
+        flex: 1;
+    }
+
+}
